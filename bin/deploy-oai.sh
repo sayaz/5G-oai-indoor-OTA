@@ -70,21 +70,28 @@ function setup_cn_node {
     echo pulling cn5g images...
     sudo docker pull ubuntu:bionic
     sudo docker pull mysql:5.7
-    sudo docker pull rdefosseoai/oai-amf:v1.2.1
-    sudo docker pull rdefosseoai/oai-nrf:v1.2.1
-    sudo docker pull rdefosseoai/oai-spgwu-tiny:v1.1.4
-    sudo docker pull rdefosseoai/oai-smf:v1.2.1
-    sudo docker pull rdefosseoai/oai-udr:v1.2.1
-    sudo docker pull rdefosseoai/oai-udm:v1.2.1
-    sudo docker pull rdefosseoai/oai-ausf:v1.2.1
+    sudo docker pull oaisoftwarealliance/oai-amf:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-nrf:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-spgwu-tiny:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-smf:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-udr:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-udm:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-ausf:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-upf-vpp:v1.4.0
+    sudo docker pull oaisoftwarealliance/oai-nssf:v1.4.0
+    sudo docker pull oaisoftwarealliance/trf-gen-cn5g:latest
 
-    sudo docker image tag rdefosseoai/oai-amf:v1.2.1 oai-amf:latest
-    sudo docker image tag rdefosseoai/oai-nrf:v1.2.1 oai-nrf:latest
-    sudo docker image tag rdefosseoai/oai-smf:v1.2.1 oai-smf:latest
-    sudo docker image tag rdefosseoai/oai-spgwu-tiny:v1.1.4 oai-spgwu-tiny:latest
-    sudo docker image tag rdefosseoai/oai-udr:v1.2.1 oai-udr:latest
-    sudo docker image tag rdefosseoai/oai-udm:v1.2.1 oai-udm:latest
-    sudo docker image tag rdefosseoai/oai-ausf:v1.2.1 oai-ausf:latest
+
+    sudo docker image tag oaisoftwarealliance/oai-amf:v1.4.0 oai-amf:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-nrf:v1.4.0 oai-nrf:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-smf:v1.4.0 oai-smf:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-spgwu-tiny:v1.4.0 oai-spgwu-tiny:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-udr:v1.4.0 oai-udr:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-udm:v1.4.0 oai-udm:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-ausf:v1.4.0 oai-ausf:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-upf-vpp:v1.4.0 oai-upf-vpp:v1.4.0
+    sudo docker image tag oaisoftwarealliance/oai-nssf:v1.4.0 oai-nssf:v1.4.0
+    sudo docker image tag oaisoftwarealliance/trf-gen-cn5g:latest trf-gen-cn5g:latest
     echo pulling cn5g images... done.
 
     sudo sysctl net.ipv4.conf.all.forwarding=1
@@ -98,7 +105,7 @@ function setup_cn_node {
     ./scripts/syncComponents.sh
     echo cloning and syncing oai-cn5g-fed... done.
     echo replacing a couple of configuration files
-    cp /local/repository/etc/oai/docker-compose-mini-nrf.yaml /var/tmp/oai-cn5g-fed/docker-compose/docker-compose-mini-nrf.yaml
+    cp /local/repository/etc/oai/docker-compose-basic-nrf.yaml /var/tmp/oai-cn5g-fed/docker-compose/docker-compose-basic-nrf.yaml
     cp /local/repository/etc/oai/oai_db1.sql /var/tmp/oai-cn5g-fed/docker-compose/oai_db1.sql
     echo setting up cn node... done.
 
