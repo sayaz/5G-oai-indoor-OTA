@@ -1,3 +1,4 @@
+Test
 set -ex
 COMMIT_HASH=$1
 NODE_ROLE=$2
