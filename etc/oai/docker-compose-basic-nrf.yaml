@@ -5,7 +5,7 @@ services:
         image: mysql:5.7
         volumes:
             - ./oai_db2.sql:/docker-entrypoint-initdb.d/oai_db.sql
-            - ./mysql-healthcheck1.sh:/tmp/mysql-healthcheck.sh
+            - ./mysql-healthcheck2.sh:/tmp/mysql-healthcheck.sh
         environment:
             - TZ=Europe/Paris
             - MYSQL_DATABASE=oai_db
